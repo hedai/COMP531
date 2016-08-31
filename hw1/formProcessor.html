@@ -1,43 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Form Processor</title>
-  <meta charset="UTF-8">
-  <meta name="author" content= "He Dai">
-  <title>Ricebook Simple Page : Homework 01</title>
+	<meta charset="utf-8">
+	<meta name="author" content="He Dai">
+	<title>Ricebook Simple Page : Homework 01</title>
 </head>
 <body>
-</body>
+
+
+<h1>Ricebook</h1>
+
+
+<table style="width:400px" id="userTable">
+  <caption>RiceBook User Inforamtion</caption>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
-window.onload = function() {
-
-	//Read the url and store the query string
-	var url=location.search;
-	var qstring=url.substr(url.indexOf("?")+1).split("&");
-
-	//First line of table
-	document.writeln('<table>')
-	document.writeln('<tr>')
-	document.writeln('  <th>key</td>')
-	document.writeln('  <th>value</td>')
-	document.writeln('</tr>')
-
-	//
-	for(var i=0; i<qstring.length; i++){
-		//Read each qstring. If meeting timestamp, convert to readable line.
-		qstring[i]=qstring[i].split("=");
-		if(qstring[i][0]=="timestamp"){
-        	qstring[i][1]= Date(qstring[i][1]);
-      	}
-
-      	//write data line by line
-        document.writeln('<tr>');
-    	document.writeln('<td>' + decodeURIComponent(qstring[i][0]) + '</td>');
-        document.writeln('<td>' + decodeURIComponent(qstring[i][1]) + '</td>');
-        document.writeln('</tr>');
-    }
-
-	document.writeln('</table>')
-}
+	// Extract the query parameter from the location to Json
+	function parseQueryParams() {
+		var paramsJson = {};
+		var query = window.location.search.substring(1);	
+		var params = query.split("&");
+		for (var i = 0; i < params.length; i++) {
+			var pair = params[i].split("=");	
+			// first entry of this name
+			paramsJson[pair[0]] = decodeURIComponent(pair[1]);
+		}
+		return paramsJson;
+	}
+	var paramsJson = parseQueryParams();
+	// console.log(paramsJson);	
+	// the "hidden field" timestamp should be rendered as a human readable datetime
+	if (paramsJson.hasOwnProperty("timestamp")) {
+		// need to covert string to int, base 10
+		paramsJson["datetime"] = new Date(parseInt(paramsJson["timestamp"], 10));
+	}
+	// built HTML Table from JSON
+	function buildHTMLTable(tableId, data) {
+		for (var key in data) {
+			// may be vulnerable for malicious injection
+			var row = "<tr><th>" + key + "</th> <th>" + data[key] +"</th></tr>";
+			// console.log(row);
+			$("#" + tableId).append(row);
+		}
+	}
+	buildHTMLTable("userTable", paramsJson);		
 </script>
+
+
+</body>
 </html>
