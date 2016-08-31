@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <title>Simple Page</title>
+  <meta charset="UTF-8">
+  <meta name="author" content= "He Dai">
+  <title>Ricebook Simple Page : Homework 01</title>
+</head>
+<body>
+
+<h2>Rice Book</h2>
+
+<form id="myForm" method="GET" action="formProcessor.html">
+
+	<!Input text areas for the following: account name, display name, email address, phone number, date of birth, zipcode, password, password confirmation, hidden timestamp>
+
+	<label for="accname">
+		Account Name (upper or lower case letters and numbers, but not start with a number.)<br/>
+		<input type="text" name="accountName" required size="30" placeholder="account name" pattern="[a-zA-Z ]+[0-9a-zA-Z ]?">
+	</label>
+	<br/><br/>
+
+	<label for="email">
+		Email Address<br/>
+		<input type="email" name="email" required size="30" placeholder="email address">
+	</label>
+	<br/><br/>
+
+	<label for="phone">
+		Phone Number:<br/>
+		<input type="tel" name="phone" required placeholder="123-123-1234" size="11" 
+			pattern="\d\d\d[-]?\d\d\d[-]?\d\d\d\d">
+	</label>
+	<br/><br/>
+
+	<label for="birth">
+		Date of Birth:<br/>
+		<input type="date" name="dob" required placeholder="mm/dd/yyyy">
+	</label>
+	<br/><br/>
+
+	<label for="zipcode">
+		Zip Code<br/>
+		<input type="text" name="zipcode" required size="30" placeholder="00000" placeholder="zipcode" pattern="\d\d\d\d\d">
+	</label>
+	<br/><br/>
+
+	<label for="password">
+		Password<br/>
+		<input type="password" name="password" required size="30" placeholder="password">
+	</label>
+	<br/>
+
+	<label for="confpassword">
+		Password Confirmation<br/>
+		<input type="password" name="confPassword" required size="30" placeholder="password confirmation">
+	</label>
+	<br/><br/>
+
+	<input type="hidden" id="ts" name="timestamp" value="">
+
+	<input type="submit" value="Submit" onclick="return validate(this.parentNode)">
+	<input type="reset" value="Clear">
+</form>
+
+
+<script>
+//Validation when submitting
+function validate(form) {
+	getTimeStamp(event)
+	validatePassword()
+}
+
+//Function to get the time stamp
+function getTimeStamp(event) {
+    var n = event.timeStamp
+    document.getElementById("ts").value = n
+}
+
+//Fuction to validate the password
+function validatePassword() {
+    var pw = document.forms["myForm"]["password"].value
+    var pwc = document.forms["myForm"]["confpassword"].value
+
+    if(pw != pwc){
+    	alert("Passwords should be equal")
+    	return false
+    }
+}
+
+// This function executes after the document has been loaded
+window.onload = function() {
+	
+	var form = document.forms[0]
+
+	var values = location.search.substring(1).split('&')
+		.filter(function(e) { return (e.length) })
+
+	// prepopulate the form from the query string	
+	values.forEach(function(tuple) {			
+		var kv = tuple.split('=')		
+		var el = form[kv[0]]
+		var value = kv[1]
+		
+		// if a checkbox then we need to iterate to check the correct boxes.		
+		var len = el.length
+		if (len && el[0].type === "checkbox") {			
+			for (var ii = 0; ii < len; ++ii) {	
+				if (el[ii].value === value) {
+					el[ii].checked = true
+				}
+			}			
+		} else {
+			el.value = decodeURIComponent(value).replace(/\+/g, ' ')
+		}
+	})
+
+	if (values.length) {
+		alert('Prepopulated your form with query string values')
+	}
+
+}
+</script>
+
+</body>
+</html>
