@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>COMP531 Web Development In-Class Exercise 1</title>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<h1>He Dai</h1>
+<p>Second-year Master student in Electrical and Computer Engineering at Rice University.</p>
+<p>One adventurer always want to explore new world.</p>
+
+<img id='myPic' src="https://scontent.fhou2-1.fna.fbcdn.net/v/l/t1.0-9/11000188_442057782642875_5006636058259164702_n.jpg?oh=2d1f9e238782caeea8352d9e68bf764b&oe=583D2394" width="200px" title="Rice Logo" alt="Image Missing">
+
+
+<ul>
+	<li><a href="https://www.facebook.com/profile.php?id=100005159706637">My Facebook</a></li>
+	<li><a href="https://www.linkedin.com/in/he-dai-13ba3a83">My Linkedin</a></li>
+
+</ul>
+
+
+<h2>Comment</h2>
+<form action="" id="usrform">
+  Name: <input type="text" name="usrname">
+  <input type="submit">
+</form>
+<br>
+<textarea rows="10" cols="50">
+
+
+ --- Enter your message here --- 
+
+
+</textarea>
+
+<input type="submit" value="Submit">
+<button type="button" onclick="clearText()"> Clear </button>
+
+<br><br>
+Countdown: <span id="indicator">15</span>
+<br>
+<button type="button" onclick="pauseCountDown()"> Pause Countdown </button>
+<button type="button" onclick="resumeCountDown()"> Resume Countdown </button>
+
+<script>
+
+//Set time out alert for page refresh
+setTimeout(function(){
+	alert("Page will refresh when the counter reaches 0.")
+}, 5000)
+
+//countdown denotes the <span>
+//countDownInterval marks the setInterval
+//clickOnce limits the restoreCountDown() to call setInterval once a time
+var indicator = document.getElementById("indicator")
+var countDownInterval
+var clickOnce = false
+
+//Set 15 seconds count down
+countDownInterval = 
+setInterval(function () {
+	var number = parseInt(indicator.innerHTML)
+	indicator.innerHTML = number-1
+	if(number == 1){
+		clearInterval(countDownInterval);
+		window.location.assign("hello.html")
+	}
+}, 1000)
+
+//Clear the textarea content
+function clearText() {
+    document.getElementById("text").value = ""
+}
+
+//Evokes when stop count down button is pressed
+function pauseCountDown() {
+    setPauseCountDown(false)
+}
+
+//Evokes when restart count down button is pressed
+function resumeCountDown(){
+	setPauseCountDown(true)
+}
+
+//Control the running or stopping countdown function
+function setPauseCountDown(bool){
+	if(bool){
+		if(clickOnce){
+			countDownInterval = 
+			setInterval(function () {
+				 var number = parseInt(indicator.innerHTML)
+				 indicator.innerHTML = number-1
+				 if(number == 1){
+				 	window.location.assign("hello.html")
+				 }
+			}, 1000)
+			clickOnce = false
+		}
+	}
+	else{
+		clearInterval(countDownInterval)
+		clickOnce = true
+	}
+}
+</script>
+
+</body>
+</html>
