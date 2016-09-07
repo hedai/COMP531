@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Avoid</title>
+    <meta name="author" content= "He Dai">
+    <style>
+        #playground {
+            width: 1000px;
+            height: 800px;
+            border: 5px solid black;
+        }
+        button{
+            position:absolute;
+        }
+        #congratulations{
+            text-align: center;
+            position: absolute;         
+            border-radius: 10px;
+            background-color: #7FFFD4;
+            width: 150px;
+            display: none;
+            border: solid red;
+            color: #0000FF;
+        }
+    </style>
+</head>
+<body id="move">
+    <h1>Mouse Game</h1>
+    <p>Hello Event! COMP531 Web Development In-Class Exercise 5</p>
+    <div id="playground">
+        <button onmouseover="movingButt()" onclick="congratulations()" id="button">Click Me</button> 
+    </div>
+    <div id="congratulations">
+        <p>Congratulations! </p>
+        <p>You Won!</p>
+    </div>
+<script src="avoid.js"></script>
+</body>
+</html>
