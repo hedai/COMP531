@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <title>Simple Page</title>
+  <meta charset="UTF-8">
+  <meta name="author" content= "He Dai">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h2>Profile Page</h2>
+
+<p>
+	Display Name
+	<input type="text" id="inputName" size="30" placeholder="Display Name" pattern="[a-zA-Z ]+[0-9a-zA-Z ]?"> 
+	<span id="displayName">He Dai</span>
+</p>
+
+<p>
+	Email Address
+	<input type="email" id="inputEmail" size="30" placeholder="email address">
+	<span id="emailAddress">hd15@rice.edu</span>
+</p>
+
+<p>
+	Phone Number
+		<input type="tel" id="inputPhone" placeholder="123-123-1234" size="11" 
+			pattern="\d\d\d[-]?\d\d\d[-]?\d\d\d\d"> 
+		<span id="phoneNumber">123-456-7890</span>
+</p>
+
+<p>
+	Zip Code
+		<input type="number" id="inputZipcode" size="30" placeholder="00000" placeholder="zipcode">
+		<span id="zipCode">77005</span>
+</p>
+
+<p>
+	Password
+		<input type="password" id="password" size="30" placeholder="password">
+	<br>
+	Password Confirmation
+		<input type="password" id="confPassword" size="30" placeholder="password confirmation">
+<p>
+
+<p>
+	<input type="submit" value="Update" onclick="validate()">
+</p>
+
+<p class="redirect">
+	<a href=main.html>To main page</a>
+</p>
+<script src="profile.js"></script>
+
+</body>
+</html>

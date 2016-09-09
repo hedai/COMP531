@@ -1,0 +1,32 @@
+.table {
+	background-color: black;
+}
+
+#r1 {
+	color: salmon;
+}
+
+#r2 {
+	color: white;
+}
+
+#r3 {
+	text-align: center;
+}
+
+#r4 {
+	color: white;
+}
+
+#r5 {
+	text-align: center;
+}
+
+.redirect {
+	background-color: white;
+    border: solid;
+    padding: 8px 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+}
