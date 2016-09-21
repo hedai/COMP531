@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <title>Profile Page</title>
+  <meta charset="UTF-8">
+  <meta name="author" content= "He Dai">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body id="profileBody">
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="indexNav">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"></button>
+        <a class="navbar-brand" href="#">DH Inc.</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href=main.html>Home</a></li>
+          <li><a href=index.html>Log Out</a></li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div class="container">
+  <!--Profile Col-->
+  <div class="col-xs-4 col-sm-4">
+    <div class="well">
+      <img id="profilePic" class="img-responsive" src="http://wfiles.brothersoft.com/k/kobe-bryant-2_191912-1600x1200.jpg" height="210" width="280">
+      <br/>
+      <div class="input-group">
+        <label>Upload Profile</label>
+        <input type="file" value="Upload Profile" id="post" class="btn btn-default form-control">
+      </div>
+    </div>
+
+  <!--Cur Info Col-->
+    <div class="well" id="current_info">
+      <ul class="list-group">
+      <h3><strong> Current Info </strong></h3>
+      <li class="list-group-item" id="displayName">Kobe Bryant</li>
+      <li class="list-group-item" id="emailAddress">kb01@rice.edu</li>
+      <li class="list-group-item" id="phoneNumber">123-456-7890 </li>
+      <li class="list-group-item" id="dateOfBirth">August 23, 1978</li>
+      <li class="list-group-item" id="zipCode">90015</li>
+      </ul>
+    </div>
+  </div>
+
+<!--Update Info Col-->
+  <div id="update_info" class="col-xs-4 col-sm-offset-1 col-sm-4">
+
+    <div id="uploadBox" class="well">
+      <img id="RiceOwl" class="img-responsive" src="http://cdn1.bloguin.com/wp-content/uploads/sites/68/2012/05/RiceOwls.png" style="vertical-align: middle;" height="200" width="300">
+        <strong id="Ricebook"> *Ricebook* </strong>
+    </div>
+
+    <div class="well">
+      <h3><strong> Update Info </strong></h3>
+
+    <form role="form" action="#" method="GET" id="regForm">
+    	<div class="form-group">
+    		<label for="dispname" class="control-label">Display Name</label>
+    		<input type="text" class="form-control" id="inputName" pattern="^[A-Za-z0-9_]{1,15}$" placeholder="account name">
+    	</div>	
+
+    	<div class="form-group">
+    	<label for="email">Email Address</label>
+    	<input type="email" id="inputEmail" placeholder="email address" pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+" class="form-control"> 
+    	</div>
+
+    	<div class="form-group">
+    		<label for="phone">Phone Number:</label>
+    		<input type="tel" id="inputPhone" placeholder="123-123-1234" size="11" pattern="\d{3}[-]?\d{3}[-]?\d{4}" class="form-control">
+    	</div>
+
+    	<div class="form-group">
+    		<label for="zipcode">Zip Code</label>
+    		<input type="text" id="inputZipcode" size="30" placeholder="00000" placeholder="zipcode" pattern="\d{5}" class="form-control">
+    	</div>
+
+    	<div class="form-group">
+    		<label for="password">Password</label>
+    		<input type="password" id="password" class="form-control" placeholder="password">
+    					
+    		<label for="confpassword">Password Confirmation</label>
+    		<input type="password" id="confPassword" class="form-control" placeholder="password confirmation">
+    	</div>
+    </form>
+    	<input type="submit" value="Update" onclick="validate()" class="btn btn-default">
+    </div>
+  </div>
+</div>
+<script src="profile.js"></script>
+
+</body>
+</html>

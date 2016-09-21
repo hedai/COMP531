@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Main Page</title>
+  <meta charset="UTF-8">
+  <meta name="author" content= "He Dai">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body id="mainBody">
+
+<!--Navifation Bar-->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="indexNav">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"></button>
+        <a class="navbar-brand" href="#">DH Inc.</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href=profile.html>Edit Your Profile</a></li>
+          <li><a href=index.html>Log Out</a></li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div class="container">
+  <div class="row">
+  <!--Left Bar: Search Box, Profile and Friends-->
+  <div class="col-xs-4 col-sm-4">
+
+    <div class="well">
+      <div>
+        <img id="profilePic"  src="http://wfiles.brothersoft.com/k/kobe-bryant-2_191912-1600x1200.jpg" class="img-responsive" height="210" width="280">
+        <label id="profileName">Kobe</label><br/>
+      </div>
+      <br/>
+      <div>
+        <label>Status:</label>
+        <p id="status">There's no way you can beat me!</p>
+        <div class="form-group">
+          <textarea class="form-control" rows="1" id="post_status"></textarea>
+          <input type="button" value="Post" id="post" class="btn btn-default">
+        </div>
+      </div>
+    </div>
+
+    <div class="well">
+      <div>
+        <h4> Friends </h4>
+        <img id="profilePic1"  src="http://i0.kym-cdn.com/photos/images/facebook/000/993/875/084.png" class="img-thumbnail" height="100" width="100">
+        <label>Nick Young</label><br/>
+        <p>Status: What???</p>
+        <input type="button" value="Unfollow" id="unfollow_btn" class="btn btn-default">
+
+        <br/><br/><br/>
+        <img id="profilePic2"  src="https://cdn0.vox-cdn.com/thumbor/4yH57idbOaL-LGNl_FwhHW_ufKM=/0x97:2002x1432/1310x873/cdn0.vox-cdn.com/uploads/chorus_image/image/50131761/usa-today-8861436.0.jpg" class="img-thumbnail" height="100" width="100">
+        <label>Jeremy Lin</label><br/>
+        <p>Status: Is my haircut awesome?</p>
+        <input type="button" value="Unfollow" id="unfollow_btn" class="btn btn-default">
+
+        <br/><br/><br/>
+        <img id="profilePic3"  src="http://az616578.vo.msecnd.net/files/2016/01/17/635886557531071372-1009885900_tumblr_static_bdj3tvirs5k4wgww44sc8k4kc.jpg" class="img-thumbnail" height="100" width="100">
+        <label>Barney Stinson</label><br/>
+        <p>Status: It's going to be Legen... wait for it... dary!</p>
+        <input type="button" value="Unfollow" id="unfollow_btn" class="btn btn-default">
+
+        <br/><br/><br/>
+        <img id="profilePic4"  src="https://lh5.googleusercontent.com/-89xTT1Ctbrk/AAAAAAAAAAI/AAAAAAAABcc/Kg0vilTzpKI/photo.jpg" class="img-thumbnail" height="100" width="100">
+        <label>Elon Musk</label><br/>
+        <p>Status: Never told you I am working on the IM suit.</p>
+        <input type="button" value="Unfollow" id="unfollow_btn" class="btn btn-default">
+
+      </div>
+
+      <div class="form-group">
+      <br/><br/>
+        <input type="text" class="form-control" placeholder = "Add friends to follow here" size="30">
+        <input type="button" value="Add" id="search_btn" class="btn btn-default">
+      </div>
+    </div>
+  </div>
+
+    <div class="col-xs-4 col-sm-4">
+      <div id="uploadBox" class="well">
+        <div class="form-group">
+          <label>Upload Image</label>
+          <input type="file" value="Upload Image" id="post" class="btn btn-default form-control">
+          <br/>
+          <label>New post:</label>
+          <textarea class="form-control" rows="3" id="post_comments" placeholder="Your post here"></textarea>
+          <input type="button" value="Post" id="post" class="btn btn-default">
+          <input type="reset" value="Cancel" id="cancel" class="btn btn-default">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-4 col-sm-4">
+      <div id="uploadBox" class="well">
+        <img id="RiceOwl" class="img-responsive" src="http://cdn1.bloguin.com/wp-content/uploads/sites/68/2012/05/RiceOwls.png" style="vertical-align: middle;" height="200" width="300">
+        <strong id="Ricebook"> *Ricebook* </strong> 
+      </div>
+    </div>
+
+    <div id="searchBox" class="col-xs-4 col-sm-8">
+      <div class="well">
+        <div class="input-group col-md-12">
+          <input id="searchBar" type="search" placeholder = "search here" size="50" class="form-control input-lg">
+            <span class="input-group-btn">
+              <button class="btn btn-info btn-lg" type="button">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </span>
+        </div>
+      </div>
+    </div>
+
+  <!--Feeds-->
+    <div class="col-xs-8 col-sm-8">
+        
+      <div class="well">
+        <label>The Westerlands</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Author:George R. R. Martin<br/>
+        The westerlands are a place of rugged hills and rolling plains, of misty dales and craggy shorelines, a place of blue lakes and sparkling rivers and fertile fields, of broadleaf forests that teem with game of every sort, where half-hidden doors in the sides of wooded hills open onto labyrinthine caves that wend their way through darkness to reveal unimaginable wonders and vast treasures deep beneath the earth.<br/>
+        These are rich lands, temperate and fruitful, shielded by high hills to the east and south and the endless blue waters of the Sunset Sea to the west.  Men came here in the Dawn Age, it is said, but before them the children of the forest made their homes in the woods, whilst giants dwelled amongst the hills, where their bones can still occasionally be found.
+        <br/>
+        <input type="button" value="Edit" id="edit" class="btn btn-default">
+        <input type="button" value="Comment" id="comment" class="btn btn-default">
+      </div>
+        
+
+      <div class="well">
+          <label>Ice And Fire</label><br/>
+          <img id='img1' class="img-responsive" src="http://img14.deviantart.net/e306/i/2015/312/5/9/a_song_of_ice_and_fire_by_ertacaltinoz-d9fzd8e.jpg" height="400" width="400">
+          <br/>
+          <input type="button" value="Edit" id="edit" class="btn btn-default">        
+          <input type="button" value="Comment" id="comment" class="btn btn-default">
+      </div>
+
+
+      <div class="well">
+        <label>Sonnet I</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Author:William Shakespeare<br/>
+        From fairest creatures we desire increase,<br/>
+        That thereby beauty's rose might never die,<br/>
+        But as the riper should by time decease,<br/>
+        His tender heir might bear his memory:<br/>
+        But thou contracted to thine own bright eyes,<br/>
+        Feed'st thy light's flame with self-substantial fuel,<br/>
+        Making a famine where abundance lies,<br/>
+        Thy self thy foe, to thy sweet self too cruel:<br/>
+        Thou that art now the world's fresh ornament,<br/>
+        And only herald to the gaudy spring,<br/>
+        Within thine own bud buriest thy content,<br/>
+        And, tender churl, mak'st waste in niggarding:<br/>
+        Pity the world, or else this glutton be,<br/>
+        To eat the world's due, by the grave and thee.
+        <br/>
+        <input type="button" value="Edit" id="edit" class="btn btn-default">
+        <input type="button" value="Comment" id="comment" class="btn btn-default">
+      </div>
+
+      <div class="well">
+        <label>Election 2016</label><br/>
+        <img id='img2' class="img-responsive" src="http://www.commondreams.org/sites/default/files/styles/cd_large/public/headlines/votingagainst-a.jpg?itok=pot4rHDL" height="400" width="700">
+        <br/>
+        <input type="button" value="Edit" id="edit" class="btn btn-default">
+        <input type="button" value="Comment" id="comment" class="btn btn-default">
+      </div>
+
+      <div class="well">
+        <label>Silent Spring</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Author:Cixin Liu<br/>
+        The Red Union had been attacking the headquarters of the April Twenty-eighth Brigade for two days. Their red flags fluttered restlessly around the brigade building like flames yearning for firewood.<br/>
+        The Red Union commander was anxious, though not because of the defenders he faced. The more than two hundred Red Guards of the April Twenty-eighth Brigade were mere greenhorns compared with the veteran Red Guards of the Red Union, which was formed at the start of the Great Proletarian Cultural Revolution in early 1966. The Red Union had been tempered by the tumultuous experience of revolutionary tours around the country and seeing Chairman Mao in the great rallies in Tiananmen Square.<br/>
+        But the commander was afraid of the dozen or so iron stoves inside the building, filled with explosives and connected to each other by electric detonators. He couldn’t see them, but he could feel their presence like iron sensing the pull of a nearby magnet. If a defender flipped the switch, revolutionaries and counter-revolutionaries alike would all die in one giant ball of fire.
+        <br/>
+        <input type="button" value="Edit" id="edit" class="btn btn-default">
+        <input type="button" value="Comment" id="comment" class="btn btn-default">
+      </div>
+
+      <div class="well">
+        <label>The Three-Body Problem</label><br/>
+        <img id='img3' class="img-responsive" src="http://i.gr-assets.com/images/S/compressed.photo.goodreads.com/hostedimages/1438275782i/15688772._SX540_.png" height="404" width="540">
+        <br/>
+        <input type="button" value="Edit" id="edit" class="btn btn-default">
+        <input type="button" value="Comment" id="comment" class="btn btn-default">
+      </div>
+
+      <div class="well">
+        <label>The Dark Forest</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Author:Cixin Liu<br/>
+        In Dark Forest, Earth is reeling from the revelation of a coming alien invasion: four centuries in the future. The aliens' human collaborators have been defeated, but the presence of the sophons, the tiny super-intelligent computers made out of protons [there is a pun in Chinese between the word for a proton, zhizi, and the word for a sophon, zhizi, share the same pronunciation], which allow Trisolaris instant access to all human information, means that Earth's defense plans are exposed to the enemy. Only the human mind remains a secret.<br/>
+        This is the motivation for the Wallfacer Project, a daring plan that grants four men enormous resources to design secret strategies, hidden through deceit and misdirection from Earth and Trisolaris alike. Three of the Wallfacers are influential statesmen and scientists, but the fourth is a total unknown. Luo Ji, an unambitious Chinese astronomer and sociologist, is baffled by his new status. All he knows is that he's the one Wallfacer that Trisolaris wants dead.
+        <br/>
+        <input type="button" value="Edit" id="edit" class="btn btn-default">
+        <input type="button" value="Comment" id="comment" class="btn btn-default">
+      </div>
+
+      <div class="well">
+        <label>The Walking Dead -- Season XII</label><br/>
+        <img id='img4' class="img-responsive" src="http://images.amcnetworks.com/amc.com/wp-content/uploads/2016/07/the-walking-dead-season-7-rick-lincoln-michonne-gurira-cci-key-art-800x600-nologo.jpg" height="375" width="500">
+        <br/>
+        <input type="button" value="Edit" id="edit" class="btn btn-default">
+        <input type="button" value="Comment" id="comment" class="btn btn-default">
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="main.js"></script>
+
+</body>
+</html>
