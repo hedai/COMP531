@@ -8,6 +8,8 @@ class Register extends Component {
     componentDidUpdate() {
         if (this.props.error.length == 0) {
             this.email.value = null
+            this.phone.value = null
+            this.birth.value = null
             this.zipcode.value = null
             this.password.value = null
             this.pwconf.value = null
@@ -16,12 +18,14 @@ class Register extends Component {
 
     render() { return (
         <div className="col-sm-8">
-            <h2>Register a new account</h2>
+            <label id="indexRegister"><font size="5">Register Now</font></label><br/>
             <form onSubmit={(e) => {
                 e.preventDefault()
                 const payload = {
                     username:this.username.value,
                     email:this.email.value,
+                    phone:this.phone.value,
+                    birth:this.birth.value,
                     zipcode:this.zipcode.value,
                     password:this.password.value,
                     pwconf:this.pwconf.value
@@ -29,17 +33,29 @@ class Register extends Component {
                 this.props.dispatch(register(payload))
             }}>
                 <div className="form-group row">
-                    <label className="col-sm-3 form-control-label" for="username">Username</label>
+                    <label className="col-sm-3 form-control-label" for="username">Account Name</label>
                     <div className="col-sm-9">
-                    <input className="form-control" id="username" type="text" ref={(node) => this.username = node } placeholder="desired.username"/>
+                    <input className="form-control" id="username" type="text" ref={(node) => this.username = node } placeholder="account name"/>
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label className="col-sm-3 form-control-label" for="email">Email</label>
+                    <label className="col-sm-3 form-control-label" for="email">Email Address</label>
                     <div className="col-sm-9">
-                    <input className="form-control" id="email" type="text" ref={(node) => this.email = node } placeholder="your.email@gmail.com"/>
+                    <input className="form-control" id="email" type="email" ref={(node) => this.email = node } placeholder="email address"/>
                     </div>
                 </div>
+                <div className="form-group row">
+                    <label className="col-sm-3 form-control-label" for="phone">Phone Number</label>
+                    <div className="col-sm-9">
+                    <input className="form-control" id="phone" type="tel" ref={(node) => this.phone = node } placeholder="123-123-1234"/>
+                    </div>
+                </div>
+                <div className="form-group row">
+                    <label className="col-sm-3 form-control-label" for="birth">Date of Birth</label>
+                    <div className="col-sm-9">
+                    <input className="form-control" id="birth" type="date" ref={(node) => this.birth = node } placeholder="mm/dd/yyyy"/>
+                    </div>
+                </div>                
                 <div className="form-group row">
                     <label className="col-sm-3 form-control-label" for="zipcode">Zipcode</label>
                     <div className="col-sm-9">

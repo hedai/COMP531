@@ -25,8 +25,6 @@ const Action = {
     ,NAV_OUT: 'NAV_OUT'
 
     ,LOGIN_LOCAL: 'LOGIN_LOCAL'
-    ,LOGIN_GOOGLE: 'LOGIN_GOOGLE'
-    ,LOGIN_FACEBOOK: 'LOGIN_FACEBOOK'
 
 }
 

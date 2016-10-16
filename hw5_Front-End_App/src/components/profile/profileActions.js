@@ -1,6 +1,6 @@
 import Action, { updateError, resource } from '../../actions'
 
-export function validateProfile({username, email, zipcode, password, pwconf}) {
+export function validateProfile({username, email, phone, zipcode, password, pwconf}) {
     if (username) {
         if (!username.match('^[a-zA-Z][a-zA-Z0-9]+')) {
             return 'Invalid username.  Must start with a letter and can only contains letters and numbers.'
@@ -10,6 +10,12 @@ export function validateProfile({username, email, zipcode, password, pwconf}) {
     if (email) {
         if (!email.match('^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z][a-zA-Z]+$')) {
             return 'Invalid email.  Must be like a@b.co'
+        }
+    }
+
+    if (phone) {
+        if (!phone.match('^\[0-9]{3}[-]?\[0-9]{3}[-]?\[0-9]{4}$')) {
+            return 'Invalid phone.  Must be like 123-123-1234'
         }
     }
 
@@ -35,9 +41,9 @@ export function updateHeadline(headline) {
     }
 }
 
-export function updateProfile({email, zipcode, password, pwconf}) {
+export function updateProfile({email, phone, zipcode, password, pwconf}) {
     return (dispatch) => {
-        const err = validateProfile({email, zipcode, password, pwconf})
+        const err = validateProfile({email, phone, zipcode, password, pwconf})
         if (err.length > 0) {
             return dispatch(updateError(err))
         }

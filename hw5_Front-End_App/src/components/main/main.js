@@ -10,6 +10,10 @@ const Main = () => (
     // their feed of articles (with a search fiilter),
     // and their list of followers.
     <div className="row">
+        <div className="row">&nbsp;</div>
+        <div className="row">&nbsp;</div>
+        <div className="row">&nbsp;</div>
+
         <div className="col-sm-3">
             <Headline/>
             <Following/>

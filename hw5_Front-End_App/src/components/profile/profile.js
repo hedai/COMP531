@@ -45,6 +45,9 @@ const Messages = connect(
 const Profile = () => {
     return (
         <div>
+            <div className="row">&nbsp;</div>
+            <div className="row">&nbsp;</div>
+            <div className="row">&nbsp;</div>
             <Avatar/>
             <div className="col-xs-5 col-md-5">
                 <Messages/>

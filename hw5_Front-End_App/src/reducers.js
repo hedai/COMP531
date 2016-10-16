@@ -33,7 +33,7 @@ function articles(state = { articles: {}, searchKeyword: '', avatars: {} }, acti
     }
 }
 
-function profile(state = { username:'', headline: '', avatar: '', zipcode: '', email: '' }, action) {
+function profile(state = { username:'', headline: '', avatar: '', zipcode: '', email: ''}, action) {
     switch (action.type) {
 
         case Action.UPDATE_HEADLINE:

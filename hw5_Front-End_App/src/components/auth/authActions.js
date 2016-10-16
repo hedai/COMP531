@@ -44,28 +44,18 @@ export function logout() {
     }
 }
 
-export function googleLogin() {
-    location = `${apiUrl}/auth/google`
-    return { type: Action.LOGIN_GOOGLE }
-}
-
-export function facebookLogin() {
-    location = `${apiUrl}/auth/facebook`
-    return { type: Action.LOGIN_FACEBOOK }
-}
-
-export function register({username, email, zipcode, password, pwconf}) {
+export function register({username, email, phone, birth, zipcode, password, pwconf}) {
     return (dispatch) => {
-        if (!username || !email || !zipcode || !password || !pwconf) {
+        if (!username || !email || !phone || !birth || !zipcode || !password || !pwconf) {
             return dispatch(updateError('All fields must be supplied'))
         }
 
-        const err = validateProfile({username, email, zipcode, password, pwconf})
+        const err = validateProfile({username, email, phone, birth, zipcode, password, pwconf})
         if (err.length > 0) {
             return dispatch(updateError(err))
         }
 
-        resource('POST', 'register', {username, email, zipcode, password})
+        resource('POST', 'register', {username, email, phone, birth, zipcode, password})
         .then((response) => {
             return dispatch(updateSuccess(`Success!  You can now log in as "${response.username}".`))
         }).catch((err) => {

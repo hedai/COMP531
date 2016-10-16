@@ -8,6 +8,7 @@ class ProfileForm extends Component {
     componentDidUpdate() {
         if (this.props.error.length == 0) {
             this.email.value = null
+            this.phone.value = null
             this.zipcode.value = null
             this.password.value = null
             this.pwconf.value = null
@@ -19,6 +20,7 @@ class ProfileForm extends Component {
             if (e) e.preventDefault()
             const payload = {
                 email:this.email.value == this.oldEmail ? '' : this.email.value,
+                phone:this.phone.value,
                 zipcode:this.zipcode.value == this.oldZipcode ? '' : this.zipcode.value,
                 password:this.password.value,
                 pwconf:this.pwconf.value
@@ -32,6 +34,13 @@ class ProfileForm extends Component {
                         ref={(node) => this.email = node }/>
                 </div>
             </div>
+            <div className="form-group row">
+                <label className="col-sm-3 form-control-label" for="phone">phone</label>
+                <div className="col-sm-6">
+                    <input className="form-control" id="phone" type="text" placeholder={this.props.phone}
+                        ref={(node) => this.phone = node }/>
+                </div>
+            </div>            
             <div className="form-group row">
                 <label className="col-sm-3 form-control-label" for="zipcode">zipcode</label>
                 <div className="col-sm-6">
@@ -67,6 +76,7 @@ class ProfileForm extends Component {
 ProfileForm.propTypes = {
     error: PropTypes.string.isRequired,
     oldZipcode: PropTypes.number.isRequired,
+    phone: PropTypes.string.isRequired,
     oldEmail: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired
 }

@@ -34,30 +34,54 @@ ErrorMessage = connect((state) => {
 
 const Landing = () => (
     <div className="container-fluid">
-        <div className="row">
-            <div className="text-center">
-                <h1>Welcome to Ricebook!</h1>
-            </div>
-        </div>
-
-        <div className="row">
-            <div className="col-sm-2">&nbsp;</div>
-            <div className="col-sm-8">
-                <h2>Please log in</h2>
-            </div>
-            <div className="col-sm-2"></div>
-        </div>
-
-        <Login/>
-
         <div className="row">&nbsp;</div>
+        <div className="row">&nbsp;</div>
+        <div className="row">&nbsp;</div>
+        
+        <div className="jumbotron">
+            <div className="container">
+                <div className="row row-header">
+                    <div className="text-center">
+                        <h1><strong>Welcome to Ricebook!</strong></h1>
+                            <p>Where amazing happens.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <ErrorMessage/>
 
-        <div className="row">
-            <div className="col-sm-2"></div>
-            <Register/>
-            <div className="col-sm-2"></div>
+        <div className="container">
+            <div className="row">
+
+                <div className="col-xs-6 col-md-6">
+                    <div className="well">
+                        <div className="row">
+                            <div className="col-sm-2"></div>
+                            <Register/>
+                            <div className="col-sm-2"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="col-xs-6 col-md-6">
+                    <div className="well">
+                        <div className="row">
+                            <div className="col-sm-2">&nbsp;</div>
+                            <div className="col-sm-8">
+                                <label id="indexLogin"><font size="5">User Login</font></label><br/>
+                                <Login/>
+                            </div>
+                            <div className="col-sm-2"></div>
+                        </div>                    
+
+                        
+
+                        <div className="row">&nbsp;</div>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
     </div>

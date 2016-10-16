@@ -4,13 +4,13 @@ import { navToMain, navToProfile } from '../../actions'
 import { logout } from '../auth/authActions'
 
 const Nav = ({username, onProfile, dispatch}) => (
-    <nav className="navbar navbar-default">
+    <nav className="navbar navbar-inverse navbar-fixed-top">
       <div className="container-fluid">
 
         <div className="navbar-header">
           <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           </button>
-          <a className="navbar-brand" href="#">Web-Dummy</a>
+          <a className="navbar-brand" href="#">DH Inc.</a>
         </div>
 
         { username.length == 0 ? '' :
