@@ -33,43 +33,43 @@ class Register extends Component {
                 this.props.dispatch(register(payload))
             }}>
                 <div className="form-group row">
-                    <label className="col-sm-3 form-control-label" for="username">Account Name</label>
+                    <label className="col-sm-3 form-control-label" htmlFor="username">Account Name</label>
                     <div className="col-sm-9">
                     <input className="form-control" id="username" type="text" ref={(node) => this.username = node } placeholder="account name"/>
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label className="col-sm-3 form-control-label" for="email">Email Address</label>
+                    <label className="col-sm-3 form-control-label" htmlFor="email">Email Address</label>
                     <div className="col-sm-9">
                     <input className="form-control" id="email" type="email" ref={(node) => this.email = node } placeholder="email address"/>
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label className="col-sm-3 form-control-label" for="phone">Phone Number</label>
+                    <label className="col-sm-3 form-control-label" htmlFor="phone">Phone Number</label>
                     <div className="col-sm-9">
                     <input className="form-control" id="phone" type="tel" ref={(node) => this.phone = node } placeholder="123-123-1234"/>
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label className="col-sm-3 form-control-label" for="birth">Date of Birth</label>
+                    <label className="col-sm-3 form-control-label" htmlFor="birth">Date of Birth</label>
                     <div className="col-sm-9">
                     <input className="form-control" id="birth" type="date" ref={(node) => this.birth = node } placeholder="mm/dd/yyyy"/>
                     </div>
                 </div>                
                 <div className="form-group row">
-                    <label className="col-sm-3 form-control-label" for="zipcode">Zipcode</label>
+                    <label className="col-sm-3 form-control-label" htmlFor="zipcode">Zipcode</label>
                     <div className="col-sm-9">
                     <input className="form-control"id="zipcode" type="zipcode" ref={(node) => this.zipcode = node } placeholder="77005"/>
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label className="col-sm-3 form-control-label" for="password">Password</label>
+                    <label className="col-sm-3 form-control-label" htmlFor="password">Password</label>
                     <div className="col-sm-9">
                     <input className="form-control"id="password" type="password" ref={(node) => this.password = node } placeholder="password"/>
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label className="col-sm-3 form-control-label" for="pwconf">Confirmation</label>
+                    <label className="col-sm-3 form-control-label" htmlFor="pwconf">Confirmation</label>
                     <div className="col-sm-9">
                     <input className="form-control"id="pwconf" type="password" ref={(node) => this.pwconf = node } placeholder="password confirmation"/>
                     </div>

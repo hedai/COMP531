@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux'
 import Action from './actions'
 
-function followers(state = { followers: {} }, action) {
-    switch(action.type) {
-        case Action.FOLLOWER_UPDATE:
-            return { ...state, followers: action.followers }
+// function followers(state = { followers: {} }, action) {
+//     switch(action.type) {
+//         case Action.FOLLOWER_UPDATE:
+//             return { ...state, followers: action.followers }
 
-        default:
-            return state
-    }
-}
+//         default:
+//             return state
+//     }
+// }
 
 function articles(state = { articles: {}, searchKeyword: '', avatars: {} }, action) {
     switch(action.type) {
@@ -72,7 +72,7 @@ function common(state = { error:'', success:'', location:'' }, action) {
 }
 
 const Reducer = combineReducers({
-    articles, profile, followers, common
+    articles, profile, common
 })
 
 export default Reducer

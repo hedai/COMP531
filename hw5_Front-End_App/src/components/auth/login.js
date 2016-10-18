@@ -11,14 +11,14 @@ const Login = ({dispatch}) => {
             <div className="col-sm-9">
                 <div>&nbsp;</div>
                 <div className="form-group row">
-                    <label className="col-sm-4 form-control-label" for="loginUsername">username</label>
+                    <label className="col-sm-4 form-control-label" htmlFor="loginUsername">username</label>
                     <div className="col-sm-8">
                     <input className="form-control" id="loginUsername" type="text" placeholder="username"
                         ref={(node) => { username = node }} />
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label className="col-sm-4 form-control-label" for="loginPassword">password</label>
+                    <label className="col-sm-4 form-control-label" htmlFor="loginPassword">password</label>
                     <div className="col-sm-8">
                     <input className="form-control" id="loginPassword" type="password" placeholder="password"
                         ref={(node) => { password = node }} />

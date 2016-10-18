@@ -1,7 +1,7 @@
 import Action, { resource, updateError, updateSuccess, navToMain, navToOut, apiUrl } from '../../actions'
 
-import { fetchFollowers } from '../main/followingActions'
-import { fetchArticles } from '../article/articleActions'
+// import { fetchFollowers } from '../main/followingActions'
+ import { fetchArticles } from '../article/articleActions'
 import { fetchProfile, validateProfile } from '../profile/profileActions'
 
 export function initialVisit() {
@@ -14,7 +14,6 @@ export function initialVisit() {
                 headline: response.headlines[0].headline
             })
             dispatch(fetchProfile())
-            dispatch(fetchFollowers())
             dispatch(fetchArticles())
         }).catch((err) => {
             // that's okay
@@ -55,7 +54,7 @@ export function register({username, email, phone, birth, zipcode, password, pwco
             return dispatch(updateError(err))
         }
 
-        resource('POST', 'register', {username, email, phone, birth, zipcode, password})
+        resource('POST', 'register', {username, email, birth, zipcode, password})
         .then((response) => {
             return dispatch(updateSuccess(`Success!  You can now log in as "${response.username}".`))
         }).catch((err) => {

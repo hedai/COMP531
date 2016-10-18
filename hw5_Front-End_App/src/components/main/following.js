@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import { addFollower, delFollower, dispatch } from './followingActions'
 
 const Follower = ({name, avatar, headline, dispatch}) => (
     <div className="row" name="follower">
@@ -74,7 +73,6 @@ export default connect(
     (state) => {
         return {
             error: state.common.error,
-            followers: state.followers.followers
         }
     }
 )(Following)

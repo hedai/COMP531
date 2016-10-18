@@ -34,9 +34,6 @@ ErrorMessage = connect((state) => {
 
 const Landing = () => (
     <div className="container-fluid">
-        <div className="row">&nbsp;</div>
-        <div className="row">&nbsp;</div>
-        <div className="row">&nbsp;</div>
         
         <div className="jumbotron">
             <div className="container">

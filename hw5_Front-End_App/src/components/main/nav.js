@@ -4,7 +4,7 @@ import { navToMain, navToProfile } from '../../actions'
 import { logout } from '../auth/authActions'
 
 const Nav = ({username, onProfile, dispatch}) => (
-    <nav className="navbar navbar-inverse navbar-fixed-top">
+    <nav className="navbar navbar-inverse">
       <div className="container-fluid">
 
         <div className="navbar-header">

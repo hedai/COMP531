@@ -41,9 +41,9 @@ export function updateHeadline(headline) {
     }
 }
 
-export function updateProfile({email, phone, zipcode, password, pwconf}) {
+export function updateProfile({email, zipcode, password, pwconf}) {
     return (dispatch) => {
-        const err = validateProfile({email, phone, zipcode, password, pwconf})
+        const err = validateProfile({email, zipcode, password, pwconf})
         if (err.length > 0) {
             return dispatch(updateError(err))
         }

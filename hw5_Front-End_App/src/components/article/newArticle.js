@@ -20,50 +20,40 @@ class NewArticle extends Component {
     }
 
     render() { return (
-        <div>
-            <div className="row">
-                <div className="col-sm-12">
-                    <div>Say something...</div>
-                    <textarea class="newPostBody"
-                      cols="80" rows="4" placeholder="share what's new..."
+        <div className="well" id="uploadBox">
+
+            <div className="form-group">
+
+                <label>Upload Image</label>
+                <input type="file" id="articleImage" className="btn btn-default form-control" accept="image/*" onChange={(e) => this.handleImageChange(e)}/>
+
+                <br/>
+                    <label>New post:</label>
+                    <textarea className="form-control"
+                      rows="3" placeholder="Your post here"
                       value={ this.message }
                       onChange={(e) => {
                         this.message = e.target.value
                         this.forceUpdate();
                     }}>
                     </textarea>
-                </div>
-            </div>
 
-            <div className="row">
-                <div className="col-sm-5">
-                    Add a picture
-                    <input type="file" id="articleImage" accept="image/*" onChange={(e) => this.handleImageChange(e)}/>
-                </div>
-            { !this.file && !this.message ? '' :
-                <div className="col-sm-2">
-                    <div className="text-right">
-                        <input className="btn btn-primary" type="button" value="Publish it"
-                            onClick={() => {
-                                this.props.dispatch(uploadArticle(this.message, this.file))
-                                this.message = ''
-                                this.file = undefined
-                                this.forceUpdate()
-                            }}/>
+                { !this.file && !this.message ? '' :
+                    <div className="col-sm-2">
+                        <div className="text-right">
+                            <input className="btn btn-primary" type="button" value="Post"
+                                onClick={() => {
+                                    this.props.dispatch(uploadArticle(this.message, this.file))
+                                    this.message = ''
+                                    this.file = undefined
+                                    this.forceUpdate()
+                                }}/>
+                        </div>
                     </div>
-                </div>
-            }
+                }
+                
             </div>
 
-        { !this.file ? '' :
-            <div className="row">
-                <img className="postImage" src={this.preview}/>
-                <div>
-                { this.file.webkitRelativePath || this.file.name }<br/>
-                ({ parseInt(this.file.size / 1024 * 100)/100.0 } kB)
-                </div>
-            </div>
-        }
         </div>
     )}
 }

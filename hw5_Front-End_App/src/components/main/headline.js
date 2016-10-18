@@ -5,7 +5,7 @@ import { updateHeadline } from '../profile/profileActions'
 class Headline extends Component {
 
     render() { return (
-        <div>
+        <div className="well">
             <div className="row">
                 <div className="col-sm-12">
                     <div className="text-center">

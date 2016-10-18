@@ -9,32 +9,41 @@ import { searchKeyword } from './articleActions'
 const ArticlesView = ({username, articles, dispatch}) => {  
   let keyword = ''
   return (
-    <div className="col-sm-9" >
+    <div className="col-sm-12" >
+      <div className="col-xs-6 col-sm-6">
 
-      <NewArticle/>
+        <NewArticle/>
 
-      <div className="row">&nbsp;</div>
+      </div>
 
-      <div className="row">
-        <div className="col-sm-7">
-          <input className="form-control" type="text" placeholder="search your feed"
-            ref={(node) => keyword = node }
-            onChange={() => { dispatch(searchKeyword(keyword.value)) }}/>
+      <div className="col-xs-6 col-sm-6">
+        <div id="uploadBox" className="well">
+          <img id="RiceOwl" className="img-responsive" src="http://cdn1.bloguin.com/wp-content/uploads/sites/68/2012/05/RiceOwls.png"  height="200" width="300"/>
         </div>
       </div>
 
+      <div className="row">&nbsp;</div>
 
-      { articles.sort((a,b) => {
-        if (a.date < b.date)
-          return 1
-        if (a.date > b.date)
-          return -1
-        return 0
-      }).map((article) =>
-        <Article key={article._id} _id={article._id} username={username} author={article.author}
-          date={article.date} text={article.text} img={article.img} avatar={article.avatar}
-          comments={article.comments}/>
-      )}
+      
+        <div className="well">
+          <input className="form-control input-lg" type="search" placeholder="search here"
+            ref={(node) => keyword = node }
+            onChange={() => { dispatch(searchKeyword(keyword.value)) }}/>
+        </div>
+     
+      <div className="well">
+        { articles.sort((a,b) => {
+          if (a.date < b.date)
+            return 1
+          if (a.date > b.date)
+            return -1
+          return 0
+        }).map((article) =>
+          <Article key={article._id} _id={article._id} username={username} author={article.author}
+            date={article.date} text={article.text} img={article.img} avatar={article.avatar}
+            comments={article.comments}/>
+        )}
+      </div>
 
     </div>
   )

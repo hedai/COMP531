@@ -8,7 +8,6 @@ class ProfileForm extends Component {
     componentDidUpdate() {
         if (this.props.error.length == 0) {
             this.email.value = null
-            this.phone.value = null
             this.zipcode.value = null
             this.password.value = null
             this.pwconf.value = null
@@ -20,7 +19,6 @@ class ProfileForm extends Component {
             if (e) e.preventDefault()
             const payload = {
                 email:this.email.value == this.oldEmail ? '' : this.email.value,
-                phone:this.phone.value,
                 zipcode:this.zipcode.value == this.oldZipcode ? '' : this.zipcode.value,
                 password:this.password.value,
                 pwconf:this.pwconf.value
@@ -28,36 +26,29 @@ class ProfileForm extends Component {
             this.props.dispatch(updateProfile(payload))
         }}>
             <div className="form-group row">
-                <label className="col-sm-3 form-control-label" for="email">email</label>
-                <div className="col-sm-6">
+                <label className="col-sm-3 form-control-label" htmlFor="email">email</label>
+                <div className="col-sm-8">
                     <input className="form-control" id="email" type="text" placeholder={this.props.oldEmail}
                         ref={(node) => this.email = node }/>
                 </div>
-            </div>
+            </div>          
             <div className="form-group row">
-                <label className="col-sm-3 form-control-label" for="phone">phone</label>
-                <div className="col-sm-6">
-                    <input className="form-control" id="phone" type="text" placeholder={this.props.phone}
-                        ref={(node) => this.phone = node }/>
-                </div>
-            </div>            
-            <div className="form-group row">
-                <label className="col-sm-3 form-control-label" for="zipcode">zipcode</label>
-                <div className="col-sm-6">
+                <label className="col-sm-3 form-control-label" htmlFor="zipcode">zipcode</label>
+                <div className="col-sm-8">
                     <input className="form-control" id="zipcode" type="text" placeholder={this.props.oldZipcode}
                         ref={(node) => this.zipcode = node }/>
                 </div>
             </div>
             <div className="form-group row">
-                <label className="col-sm-3 form-control-label" for="password">password</label>
-                <div className="col-sm-6">
+                <label className="col-sm-3 form-control-label" htmlFor="password">password</label>
+                <div className="col-sm-8">
                     <input className="form-control" id="password" type="password" placeholder="password"
                         ref={(node) => this.password = node }/>
                 </div>
             </div>
             <div className="form-group row">
-                <label className="col-sm-3 form-control-label" for="pwconf">password confirmation</label>
-                <div className="col-sm-6">
+                <label className="col-sm-3 form-control-label" htmlFor="pwconf">password confirmation</label>
+                <div className="col-sm-8">
                     <input className="form-control" id="pwconf" type="password"placeholder="password"
                         ref={(node) => this.pwconf = node }/>
                 </div>
@@ -76,7 +67,6 @@ class ProfileForm extends Component {
 ProfileForm.propTypes = {
     error: PropTypes.string.isRequired,
     oldZipcode: PropTypes.number.isRequired,
-    phone: PropTypes.string.isRequired,
     oldEmail: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired
 }

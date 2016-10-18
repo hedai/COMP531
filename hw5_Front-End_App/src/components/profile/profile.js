@@ -44,14 +44,27 @@ const Messages = connect(
 
 const Profile = () => {
     return (
-        <div>
-            <div className="row">&nbsp;</div>
-            <div className="row">&nbsp;</div>
-            <div className="row">&nbsp;</div>
-            <Avatar/>
+        <div className = "container">
             <div className="col-xs-5 col-md-5">
-                <Messages/>
-                <ProfileForm/>
+                <Avatar/>
+                <div className="well" id="current_info">
+                    <ul className="list-group">
+                      <h3><strong> Current Info </strong></h3>
+                      <li className="list-group-item" id="displayName">Kobe Bryant</li>
+                      <li className="list-group-item" id="emailAddress">kb01@rice.edu</li>
+                      <li className="list-group-item" id="zipCode">90015</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div className="col-xs-4 col-md-offset-1 col-md-4">
+                <div id="uploadBox" className="well">
+                    <img id="RiceOwl" className="img-responsive" src="http://cdn1.bloguin.com/wp-content/uploads/sites/68/2012/05/RiceOwls.png"  height="200" width="300"/>
+                </div>
+                <div className="well">
+                    <Messages/>
+                    <ProfileForm/>
+                </div>
             </div>
         </div>
     )

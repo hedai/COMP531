@@ -31,12 +31,16 @@
     opacity: 0.9;
 }
 
-/*#app {
+#uploadBox {
+    height: 235px;
+}
+
+#app {
     background: url('http://hdlatestwallpapers.com/wp-content/uploads/2014/09/Free-Backgrounds-For-Web-Design-e1409631478302.jpeg') no-repeat center center fixed; 
     background-size: cover;
     -webkit-background-size: cover;
 }
-*/
+
 span[contenteditable='true']:hover {
     background: #e6e6e6;
 }
