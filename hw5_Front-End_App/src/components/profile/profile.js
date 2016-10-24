@@ -70,9 +70,3 @@ const Profile = () => {
     )
 }
 export default Profile
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/profile/profile.js
- **/

@@ -59,9 +59,3 @@ export default connect(
         }
     }
 )(Avatar)
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/profile/avatar.js
- **/

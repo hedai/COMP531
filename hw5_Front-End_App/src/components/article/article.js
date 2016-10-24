@@ -3,7 +3,6 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import Comment from './comment'
-import ContentEditable from './contentEditable'
 import { editArticle } from './articleActions'
 
 class Article extends Component {
@@ -32,14 +31,7 @@ class Article extends Component {
             <div className="media-left">
               <img className="postImage" src={this.props.img}/>
             </div>
-            <ContentEditable className="media-body" html={this.props.text}
-              contentEditable={this.props.username == this.props.author}
-              tooltip={this.props.username == this.props.author ? 'click to edit' : ''}
-              onChange={(e) => {
-                this.newMessage = e.target.value
-                this.disabled = this.props.text == this.newMessage
-                this.forceUpdate()
-              }}/>
+            <div dangerouslySetInnerHTML={{__html: this.props.text}}></div>
           </div>
         </div>
 

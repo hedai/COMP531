@@ -27,9 +27,3 @@ const App = ({location}) => {
 export default connect((state) => {
     return { location: state.common.location }
 })(App)
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/app.js
- **/

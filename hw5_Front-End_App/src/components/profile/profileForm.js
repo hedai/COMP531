@@ -82,9 +82,3 @@ export default connect(
 )(ProfileForm)
 
 export { ProfileForm as PureProfileForm }
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/profile/profileForm.js
- **/

@@ -2,7 +2,6 @@ import moment from 'moment'
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import ContentEditable from './contentEditable'
 import { editArticle } from './articleActions'
 
 class Comment extends Component {
@@ -23,14 +22,6 @@ class Comment extends Component {
                     {this.props.author} commented
                     on {date.format('MM-DD-YYYY')} at {date.format('HH:mm:ss')}
                 </h4>
-                <ContentEditable className="media-body" html={this.props.text}
-                    contentEditable={this.props.username == this.props.author}
-                    tooltip={this.props.username == this.props.author ? 'click to edit' : ''}
-                    onChange={(e) => {
-                        this.newMessage = e.target.value
-                        this.disabled = this.props.text == this.newMessage
-                        this.forceUpdate()
-                    }}/>
             { this.props.username != this.props.author ? '' :
                 <div className="media-right">
                     <span className="btn btn-primary"

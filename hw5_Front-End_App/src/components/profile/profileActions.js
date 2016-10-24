@@ -107,9 +107,3 @@ export function uploadImage(file) {
         }
     }
 }
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/profile/profileActions.js
- **/

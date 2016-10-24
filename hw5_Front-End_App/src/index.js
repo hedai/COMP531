@@ -23,9 +23,3 @@ render(
     </Provider>,
     document.getElementById('app')
 )
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/index.js
- **/

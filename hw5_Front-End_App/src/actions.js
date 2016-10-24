@@ -1,8 +1,7 @@
-import Promise from 'bluebird'
 import fetch from 'isomorphic-fetch'
 
 const isLocal = false
-export const apiUrl = isLocal ? 'http://localhost:5555' : 'https://webdev-dummy.herokuapp.com'
+export const url = isLocal ? 'http://localhost:8080' : 'https://webdev-dummy.herokuapp.com'
 
 const Action = {
 
@@ -12,7 +11,6 @@ const Action = {
     ,SEARCH_KEYWORD: 'SEARCH_KEYWORD'
     ,UPDATE_AVATARS: 'UPDATE_AVATARS'
 
-    //,FOLLOWER_UPDATE: 'FOLLOWER_UPDATE'
     ,UPDATE_HEADLINE: 'UPDATE_HEADLINE'
     ,UPDATE_PROFILE: 'UPDATE_PROFILE'
 
@@ -21,7 +19,7 @@ const Action = {
 
     ,NAV_PROFILE: 'NAV_PROFILE'
     ,NAV_MAIN: 'NAV_MAIN'
-    ,NAV_OUT: 'NAV_OUT'
+    ,NAV_INDEX: 'NAV_INDEX'
 
     ,LOGIN_LOCAL: 'LOGIN_LOCAL'
 
@@ -29,11 +27,11 @@ const Action = {
 
 export default Action
 
-export function updateError(error) { return { type: Action.ERROR, error }}
-export function updateSuccess(success) { return { type: Action.SUCCESS, success }}
+export function updateError(error) { return { type: Action.ERROR, errorMsg: error }}
+export function updateSuccess(success) { return { type: Action.SUCCESS, successMsg: success }}
 export function navToProfile() { return { type: Action.NAV_PROFILE }}
 export function navToMain() { return { type: Action.NAV_MAIN }}
-export function navToOut() { return { type: Action.NAV_OUT }}
+export function navToIndex() { return { type: Action.NAV_INDEX }}
 
 export function resource(method, endpoint, payload, submitJson = true) {
     const options = {credentials: 'include', method}
@@ -42,7 +40,7 @@ export function resource(method, endpoint, payload, submitJson = true) {
         options.body = submitJson ? JSON.stringify(payload) : payload
     }
 
-    return fetch(`${apiUrl}/${endpoint}`, options)
+    return fetch(`${url}/${endpoint}`, options)
     .then((response) => {
         if (response.status == 401) {
             const message = `Error in ${method} ${endpoint} ${JSON.stringify(response.json())}`
@@ -52,9 +50,3 @@ export function resource(method, endpoint, payload, submitJson = true) {
         }
     })
 }
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/actions.js
- **/

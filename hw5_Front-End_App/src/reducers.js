@@ -1,16 +1,6 @@
 import { combineReducers } from 'redux'
 import Action from './actions'
 
-// function followers(state = { followers: {} }, action) {
-//     switch(action.type) {
-//         case Action.FOLLOWER_UPDATE:
-//             return { ...state, followers: action.followers }
-
-//         default:
-//             return state
-//     }
-// }
-
 function articles(state = { articles: {}, searchKeyword: '', avatars: {} }, action) {
     switch(action.type) {
         case Action.EDIT_ARTICLE:
@@ -63,7 +53,7 @@ function common(state = { error:'', success:'', location:'' }, action) {
             return { ...state, ...clean, location: 'profile'}
         case Action.NAV_MAIN:
             return { ...state, ...clean, location: 'main' }
-        case Action.NAV_OUT:
+        case Action.NAV_INDEX:
             return { ...state, ...clean, location: '' }
 
         default:
@@ -76,9 +66,3 @@ const Reducer = combineReducers({
 })
 
 export default Reducer
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/reducers.js
- **/

@@ -35,9 +35,3 @@ export default connect(
       username: state.profile.username || '',
       onProfile: state.common.location == 'profile' }
   })(Nav)
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/main/nav.js
- **/

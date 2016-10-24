@@ -1,4 +1,4 @@
-import Action, { resource, updateError, updateSuccess, navToMain, navToOut, apiUrl } from '../../actions'
+import Action, { resource, updateError, updateSuccess, navToMain, navToIndex, apiUrl } from '../../actions'
 
 // import { fetchFollowers } from '../main/followingActions'
  import { fetchArticles } from '../article/articleActions'
@@ -38,7 +38,7 @@ export function logout() {
         resource('PUT', 'logout')
         .catch((err) => {
             dispatch({type: Action.LOGIN_LOCAL, username: undefined})
-            dispatch(navToOut())
+            dispatch(navToIndex())
         })
     }
 }
