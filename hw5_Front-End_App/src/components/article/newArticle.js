@@ -59,9 +59,3 @@ class NewArticle extends Component {
 }
 
 export default connect()(NewArticle)
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/article/newArticle.js
- **/

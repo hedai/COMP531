@@ -1,7 +1,27 @@
 import { combineReducers } from 'redux'
 import Action from './actions'
 
-function articles(state = { articles: {}, searchKeyword: '', avatars: {} }, action) {
+export function common(state = { error:'', success:'', location:'' }, action) {
+    const clean = { error: '', success: '' }
+    switch (action.type) {
+        case Action.SUCCESS:
+            return { ...state, ...clean, success: action.success }
+        case Action.ERROR:
+            return { ...state, ...clean, error: action.error }
+
+        case Action.NAV_PROFILE:
+            return { ...state, ...clean, location: 'profile'}
+        case Action.NAV_MAIN:
+            return { ...state, ...clean, location: 'main' }
+        case Action.NAV_INDEX:
+            return { ...state, ...clean, location: '' }
+
+        default:
+            return { ...state, ...clean }
+    }
+}
+
+export function articles(state = { articles: {}, searchKeyword: '', avatars: {} }, action) {
     switch(action.type) {
         case Action.EDIT_ARTICLE:
         case Action.ADD_ARTICLE:
@@ -23,7 +43,7 @@ function articles(state = { articles: {}, searchKeyword: '', avatars: {} }, acti
     }
 }
 
-function profile(state = { username:'', headline: '', avatar: '', zipcode: '', email: ''}, action) {
+export function profile(state = { username:'', headline: '', avatar: '', zipcode: '', dob: '', email: ''}, action) {
     switch (action.type) {
 
         case Action.UPDATE_HEADLINE:
@@ -34,6 +54,7 @@ function profile(state = { username:'', headline: '', avatar: '', zipcode: '', e
             if (action.headline) return { ...state, headline: action.headline }
             if (action.avatar) return { ...state, avatar: action.avatar }
             if (action.zipcode) return { ...state, zipcode: parseInt(action.zipcode) }
+            if (action.dob) return { ...state, dob: action.dob }
             if (action.email) return { ...state, email: action.email }
 
         default:
@@ -41,28 +62,8 @@ function profile(state = { username:'', headline: '', avatar: '', zipcode: '', e
     }
 }
 
-function common(state = { error:'', success:'', location:'' }, action) {
-    const clean = { error: '', success: '' }
-    switch (action.type) {
-        case Action.SUCCESS:
-            return { ...state, ...clean, success: action.success }
-        case Action.ERROR:
-            return { ...state, ...clean, error: action.error }
-
-        case Action.NAV_PROFILE:
-            return { ...state, ...clean, location: 'profile'}
-        case Action.NAV_MAIN:
-            return { ...state, ...clean, location: 'main' }
-        case Action.NAV_INDEX:
-            return { ...state, ...clean, location: '' }
-
-        default:
-            return { ...state, ...clean }
-    }
-}
-
 const Reducer = combineReducers({
-    articles, profile, common
+    common, articles, profile
 })
 
 export default Reducer

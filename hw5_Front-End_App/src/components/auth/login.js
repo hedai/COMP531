@@ -38,9 +38,3 @@ const Login = ({dispatch}) => {
 }
 
 export default connect()(Login)
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/auth/login.js
- **/

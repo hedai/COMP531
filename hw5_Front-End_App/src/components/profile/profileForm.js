@@ -40,6 +40,13 @@ class ProfileForm extends Component {
                 </div>
             </div>
             <div className="form-group row">
+                <label className="col-sm-3 form-control-label" htmlFor="dob">dob</label>
+                <div className="col-sm-8">
+                    <input className="form-control" id="dob" type="date" placeholder={this.props.oldDob}
+                        ref={(node) => this.dob = node }/>
+                </div>
+            </div>
+            <div className="form-group row">
                 <label className="col-sm-3 form-control-label" htmlFor="password">password</label>
                 <div className="col-sm-8">
                     <input className="form-control" id="password" type="password" placeholder="password"
@@ -67,6 +74,7 @@ class ProfileForm extends Component {
 ProfileForm.propTypes = {
     error: PropTypes.string.isRequired,
     oldZipcode: PropTypes.number.isRequired,
+    oldDob: PropTypes.number.isRequired,
     oldEmail: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired
 }
@@ -76,6 +84,7 @@ export default connect(
         return {
             error: state.common.error,
             oldZipcode: state.profile.zipcode,
+            oldDob: state.profile.dob,
             oldEmail: state.profile.email,
         }
     }

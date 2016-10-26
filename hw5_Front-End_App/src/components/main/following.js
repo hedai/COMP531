@@ -76,9 +76,3 @@ export default connect(
         }
     }
 )(Following)
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/main/following.js
- **/

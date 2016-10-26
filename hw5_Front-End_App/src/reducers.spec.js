@@ -2,72 +2,92 @@ import { expect } from 'chai'
 import mockery from 'mockery'
 import fetch, {mock} from 'mock-fetch'
 
-import {url} from './actions'
-import {articles, profile, common} from './reducers'
+import Action from './actions'
+import Reducer, {common, articles, profile} from './reducers'
 
 
-describe('Validate reducers (these are functions that dispatch reducers)', () => {
+describe('Validate reducer (no fetch requests here)', () => {
 
-	beforeEach(() => {
-		if(mockery.enable) {
-			mockery.enable({warnOnUnregistered: false, useCleanCache:true})
-			mockery.registerMock('node-fetch', fetch)
-			require('node-fetch')
-  		}
+	it('should initialize state', ()=>{
+		expect(Reducer(undefined, {})).to.eql({
+			common:{location:'', error:'', success:''},
+			articles:{articles:{}, searchKeyword:'', avatars:{}},
+			profile:{ username:'', headline:'', avatar:'', zipcode:'', dob:'', email:''}
+		})
 	})
 
-	afterEach(() => {
-  		if (mockery.enable) {
-			mockery.deregisterMock('node-fetch')
-			mockery.disable()
-  		}
+	it('should state success (for displaying success message to user)', () => {
+		expect(common(undefined,
+		{
+			type:Action.SUCCESS, 
+		 	success:'success test'}))
+		.to.eql(
+		{
+			location:'',
+			success:'success test', 
+			error:''
+		})
 	})
 
-	it('resource should be a resource (i.e., mock a request)', (done)=> {
-		
-		mock(`${url}/login`, {
-			method: 'GET',
-			headers: {'Content-Type': 'application/json'},
+	it('should state error (for displaying error message to user)', () => {
+		expect(common(undefined,
+		{
+			type:Action.ERROR, 
+			error:'error test'}))
+		.to.eql(
+		{
+			location:'',
+			success:'', 
+			error:'error test'
 		})
-
-		resource('GET', 'sample').then((response) => {
-			expect(response.articles).to.exist;
-		})
-		.then(done)
-		.catch(done)
 	})
 
-	it('resource should give me the http error', (done)=> {
-		const username = 'hd15test'
-		const password = 'wrong password'
-		
-		mock(`${url}/login`, {
-			method: 'POST',
-			headers: {'Content-Type': 'application/json'},
-			json: {username, password}
+	it('should set the articles',() => {
+		expect(articles(undefined,
+		{
+			type:Action.UPDATE_ARTICLES, 
+			articles:{_id:1, text:'Text A', author:'hd15'}
+		}))
+		.to.eql(
+		{
+			searchKeyword:'', 
+			avatars:{}, 
+			articles:{_id:1, text:'Text A', author:'hd15'}
 		})
-
-		resource('POST', 'login', {username, password }).catch((err) => {
-			expect(err.toString()).to.eql('Error: Unauthorized')
-		})
-		.then(done)
-		.catch(done)
 	})
 
-	it('resource should be POSTable', (done)=> {
-		const username = 'hd15test'
-		const password = 'home-forgotten-they'
-		
-		mock(`${url}/login`, {
-			method: 'POST',
-			headers: {'Content-Type': 'application/json'},
-			json: {username, password}
-		})
 
-		resource('POST', 'login', {username, password }).then((response) => {
-			expect(response).to.eql({username: "hd15test", result: "success"})
+	it('should set the search keyword',() => {
+		expect(articles(undefined,
+		{
+			type:Action.SEARCH_KEYWORD, 
+			keyword:'keyword1'
+		}))
+		.to.eql(
+		{
+			searchKeyword:'keyword1', 
+			avatars:{}, 
+			articles:{}
 		})
-		.then(done)
-		.catch(done)
 	})
+
+
+	// it('should filter displayed articles by the search keyword',() => {
+	// 	const allArticles = [{id:1, text:'text A', author:'hd15'},
+	// 					 	 {id:2, text:'text B', author:'hd15'}]
+	// 	const key = 'A'
+	// 	expect(articles(undefined,
+	// 	{
+	// 		type:Action.SEARCH_KEYWORD, 
+	// 		articles:allArticles,
+	// 		keyword:key
+	// 	}))
+	// 	.to.eql(
+	// 	{
+	// 		searchKeyword:key, 
+	// 		avatars:{}, 
+	// 		articles:{id:1, text:'text A', author:'hd15'}
+	// 	})
+	// })
+
 })

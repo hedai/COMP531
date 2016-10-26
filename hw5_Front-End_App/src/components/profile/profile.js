@@ -47,14 +47,6 @@ const Profile = () => {
         <div className = "container">
             <div className="col-xs-5 col-md-5">
                 <Avatar/>
-                <div className="well" id="current_info">
-                    <ul className="list-group">
-                      <h3><strong> Current Info </strong></h3>
-                      <li className="list-group-item" id="displayName">Kobe Bryant</li>
-                      <li className="list-group-item" id="emailAddress">kb01@rice.edu</li>
-                      <li className="list-group-item" id="zipCode">90015</li>
-                    </ul>
-                </div>
             </div>
 
             <div className="col-xs-4 col-md-offset-1 col-md-4">

@@ -22,7 +22,7 @@ export function initialVisit() {
 }
 
 export function localLogin(username, password) {
-    return (dispatch) => {
+    return (dispatch) => 
         resource('POST', 'login', { username, password })
         .then((response) => {
             dispatch({type: Action.LOGIN_LOCAL, username: response.username})
@@ -30,12 +30,13 @@ export function localLogin(username, password) {
         }).catch((err) => {
             dispatch(updateError(`There was an error logging in as ${username}`))
         })
-    }
+    
 }
 
 export function logout() {
     return (dispatch) => {
         resource('PUT', 'logout')
+        .then(dispatch({type:'LOG_OUT'}))
         .catch((err) => {
             dispatch({type: Action.LOGIN_LOCAL, username: undefined})
             dispatch(navToIndex())
@@ -62,9 +63,3 @@ export function register({username, email, phone, birth, zipcode, password, pwco
         })
     }
 }
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/auth/authActions.js
- **/

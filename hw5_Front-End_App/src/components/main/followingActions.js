@@ -8,9 +8,3 @@ export function fetchFollowers(method, name) {
     return (dispatch, getState) => {
     }
 }
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/main/followingActions.js
- **/

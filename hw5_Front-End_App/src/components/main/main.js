@@ -59,9 +59,3 @@ const Main = () => (
 )
 
 export default Main
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/main/main.js
- **/

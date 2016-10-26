@@ -6,7 +6,8 @@ import Article from './article'
 import NewArticle from './newArticle'
 import { searchKeyword } from './articleActions'
 
-const ArticlesView = ({username, articles, dispatch}) => {  
+let username
+export const ArticlesView = ({username, articles, dispatch}) => {  
   let keyword = ''
   return (
     <div className="col-sm-12" >
@@ -49,6 +50,7 @@ const ArticlesView = ({username, articles, dispatch}) => {
   )
 }
 
+
 ArticlesView.propTypes = {
   username: PropTypes.string.isRequired,
   articles: PropTypes.arrayOf(PropTypes.shape({
@@ -78,11 +80,3 @@ export default connect(
     }
   }
 )(ArticlesView)
-
-export { ArticlesView as PureArticlesView }
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/article/articlesView.js
- **/

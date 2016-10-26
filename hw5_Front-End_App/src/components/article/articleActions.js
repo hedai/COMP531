@@ -56,9 +56,3 @@ export function editArticle(articleId, message, commentId) {
 export function searchKeyword(keyword) {
     return { type: Action.SEARCH_KEYWORD, keyword }
 }
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/article/articleActions.js
- **/

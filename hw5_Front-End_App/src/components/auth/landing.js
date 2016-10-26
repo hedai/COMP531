@@ -85,9 +85,3 @@ const Landing = () => (
 )
 
 export default Landing
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/auth/landing.js
- **/

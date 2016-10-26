@@ -128,9 +128,3 @@ Article.propTypes = {
 }
 
 export default connect()(Article)
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/article/article.js
- **/

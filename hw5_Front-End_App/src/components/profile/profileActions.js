@@ -29,7 +29,6 @@ export function validateProfile({username, email, phone, zipcode, password, pwco
         if (password !== pwconf) {
             return 'Password do not match'
         }
-        // enforce strong passwords!
     }
 
     return ''
@@ -57,6 +56,7 @@ export function fetchProfile() {
     return (dispatch) => {
         dispatch(fetchField('avatars'))
         dispatch(fetchField('zipcode'))
+        dispatch(fetchField('dob'))
         dispatch(fetchField('email'))
     }
 }
@@ -87,6 +87,8 @@ function fetchField(field) {
                     action.avatar = response.avatars[0].avatar; break;
                 case 'email':
                     action.email = response.email; break;
+                case 'dob':
+                    action.dob = response.dob; break;
                 case 'zipcode':
                     action.zipcode = response.zipcode; break;
             }

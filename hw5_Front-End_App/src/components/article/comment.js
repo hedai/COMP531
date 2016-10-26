@@ -49,9 +49,3 @@ Comment.propTypes = {
 }
 
 export default connect()(Comment)
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/article/comment.js
- **/

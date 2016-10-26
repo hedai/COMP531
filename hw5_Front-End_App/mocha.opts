@@ -2,5 +2,5 @@
 --require jsdom-global/register
 --recursive
 --colors
---timeout 10000
+--timeout 99999999
 --bail

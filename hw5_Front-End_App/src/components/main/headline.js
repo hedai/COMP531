@@ -61,9 +61,3 @@ export default connect(
         }
     }
 )(Headline)
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/main/headline.js
- **/
