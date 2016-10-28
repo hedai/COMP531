@@ -4,6 +4,7 @@ He Dai
 */
 
 module.exports = app => {
+	 //app.get('/', index)
      app.get('/articles/:id?', getArticles)
      app.post('/article', addArticle)
      app.get('/headlines/:users?', getUserHeadline)
@@ -16,25 +17,30 @@ module.exports = app => {
      app.put('/avatar', putAvatar)
 }
 
-var articles = [ { id:1, author: 'Scott', text:'A post' }, 
-                 { id:2, author: 'Scott', text:'B post' }, 
-                 { id:3, author: 'Scott', text:'C post' } ]
+var articles = [{ id:1, author: 'Scott', text:'A post' }, 
+                { id:2, author: 'Scott', text:'B post' }, 
+                { id:3, author: 'Scott', text:'C post' }]
+
+// const index = (req, res) => {
+//     res.send({hello:'world'})
+// }
 
 const getArticles = (req, res) => {
 	if(req.params.id){
-		res.send(articles.filter((articles) => {
+		res.send({articles: articles.filter((articles) => {
 			return articles.id == req.params.id
-		}))		
+		}) })
 	} else {
-		res.send(articles)
+		res.send({articles: articles})
+		//console.log({'articles': articles})
 	}
 }
 
 const addArticle = (req, res) => {
      console.log('Payload received', req.body)
-     var newArticle = {id:articles.length+1, author:'Scott', text:req.body.body}
+     var newArticle = {id:articles.length+1, author:'Scott', text:req.body.text}
      articles.push(newArticle)    
-     res.send(newArticle)
+     res.send({articles: [newArticle]})
 }
 
 const getUserHeadline = (req, res) => {

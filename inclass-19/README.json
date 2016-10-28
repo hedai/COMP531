@@ -1,4 +1,4 @@
 {
 	"netid": "hd15",
-    "backend": "http://localhost:3000"
+    "backend": "https://dhbookapp.herokuapp.com/"
 }
