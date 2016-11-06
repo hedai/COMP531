@@ -1,7 +1,7 @@
 import Action, { resource, updateError, updateSuccess, navToMain, navToIndex, apiUrl } from '../../actions'
 
-// import { fetchFollowers } from '../main/followingActions'
- import { fetchArticles } from '../article/articleActions'
+import { fetchFollowers } from '../main/followingActions'
+import { fetchArticles } from '../article/articleActions'
 import { fetchProfile, validateProfile } from '../profile/profileActions'
 
 export function initialVisit() {
@@ -14,6 +14,7 @@ export function initialVisit() {
                 headline: response.headlines[0].headline
             })
             dispatch(fetchProfile())
+            dispatch(fetchFollowers())
             dispatch(fetchArticles())
         }).catch((err) => {
             // that's okay

@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import Comment from './comment'
+import ContentEditable from './contentEditable'
 import { editArticle } from './articleActions'
 
 class Article extends Component {
@@ -31,13 +32,20 @@ class Article extends Component {
             <div className="media-left">
               <img className="postImage" src={this.props.img}/>
             </div>
-            <div dangerouslySetInnerHTML={{__html: this.props.text}}></div>
+            <ContentEditable className="media-body" html={this.props.text}
+              contentEditable={this.props.username == this.props.author}
+              tooltip={this.props.username == this.props.author ? 'click to edit' : ''}
+              onChange={(e) => {
+                this.newMessage = e.target.value
+                this.disabled = this.props.text == this.newMessage
+                this.forceUpdate()
+              }}/>
           </div>
         </div>
 
         <div className="btn-group btn-group-justified">
           <div className="btn-group">
-            <label className="btn btn-warning"
+            <label className="btn btn-primary"
               onClick={() => {
                 this.hideComments = !this.hideComments
                 this.forceUpdate()
@@ -47,7 +55,7 @@ class Article extends Component {
           </div>
 
           <div className="btn-group">
-            <label className="btn btn-success"
+            <label className="btn btn-primary"
               onClick={() => { this.addComment = !this.addComment; this.forceUpdate() }}>
               { this.addComment ? 'Cancel' : 'Add a comment' }
             </label>
@@ -82,7 +90,7 @@ class Article extends Component {
                   this.forceUpdate()
               }}>
               </textarea>
-              <label className="btn btn-success"
+              <label className="btn btn-primary"
                 disabled={ this.newComment.length == 0 }
                 onClick={() => {
                   if (this.newComment.length > 0)

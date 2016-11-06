@@ -62,8 +62,18 @@ export function profile(state = { username:'', headline: '', avatar: '', zipcode
     }
 }
 
+export function followers(state = { followers: {} }, action) {
+    switch(action.type) {
+        case Action.FOLLOWER_UPDATE:
+            return { ...state, followers: action.followers }
+
+        default:
+            return state
+    }
+}
+
 const Reducer = combineReducers({
-    common, articles, profile
+    common, articles, profile, followers
 })
 
 export default Reducer

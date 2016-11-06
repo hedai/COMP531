@@ -1,19 +1,16 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
+import { addFollower, delFollower, dispatch } from './followingActions'
 
 const Follower = ({name, avatar, headline, dispatch}) => (
     <div className="row" name="follower">
         <div>&nbsp;</div>
-        <div className="media-left">
-            <img className="followingImage" src={ avatar }/>
-        </div>
-        <div className="media-body">
-            <div><strong>{ name }</strong></div>
-            <div><em>{ headline }</em></div>
-        </div>
-        <div className="media-right">
-            <span className="glyphicon glyphicon-remove" onClick={() => { dispatch(delFollower(name)) }}></span>
+        <img className="img-thumbnail" height="100" width="100" src={ avatar }/>
+        <strong>{ name }</strong><br/>
+        <div><em>{ headline }</em></div>
+        <div>
+            <input type="button" value="Unfollow" className="btn btn-warning" onClick={() => { dispatch(delFollower(name)) }}></input>
         </div>
     </div>
 )
@@ -29,7 +26,7 @@ class Following extends Component {
     render() { return (
         <div>
             <div className="col-sm-2">&nbsp;</div>
-            <div className="col-sm-8">
+            <div className="col-sm-8 well">
                 { Object.keys(this.props.followers).sort().map((f) => this.props.followers[f]).map((follower) =>
                     <Follower key={follower.name}
                         name={follower.name} avatar={follower.avatar} headline={follower.headline}
@@ -73,6 +70,7 @@ export default connect(
     (state) => {
         return {
             error: state.common.error,
+            followers: state.followers.followers
         }
     }
 )(Following)
