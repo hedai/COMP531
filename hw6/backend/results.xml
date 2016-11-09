@@ -1,0 +1,8 @@
+
+> RiceBookServer@0.0.0 test D:\GitHub\comp531\hw6\backend
+> mocha --opts mocha.opts src/**/*.spec.js "-R" "xunit"
+
+<testsuite name="Mocha Tests" tests="2" failures="0" errors="0" skipped="0" timestamp="Mon, 07 Nov 2016 22:36:14 GMT" time="0.03">
+<testcase classname="Validate Article functionality" name="verify adding an article should increase the number of articles" time="0.028"/>
+<testcase classname="Validate Profile functionality" name="PUT headline updates the headline message" time="0"/>
+</testsuite>
