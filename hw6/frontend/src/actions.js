@@ -2,7 +2,7 @@ import Promise from 'bluebird'
 import fetch from 'isomorphic-fetch'
 
 const isLocal = false
-export const url = isLocal ? 'http://localhost:8080' : 'https://webdev-dummy.herokuapp.com'
+export const url = isLocal ? 'http://localhost:3000' : 'https://webdev-dummy.herokuapp.com'
 
 const Action = {
 
@@ -42,7 +42,6 @@ export function resource(method, endpoint, payload, submitJson = true) {
         options.body = submitJson ? JSON.stringify(payload) : payload
     }
 
-    // fetch everything from dummy server
     return fetch(`${url}/${endpoint}`, options)
     .then((response) => {
         if (response.status === 401) {

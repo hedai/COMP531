@@ -16,7 +16,7 @@ describe('Validate Article functionality', () => {
 			return res.json()
 		})
 		.then(body => {
-			expect(body.length).to.be.at.least(3)
+			expect(body.articles.length).to.be.at.least(3)
 		})
 		.then(done)
 		.catch(done)
@@ -31,9 +31,9 @@ describe('Validate Article functionality', () => {
 		// verify the second artice has the correct content
 		let oldID
 		fetch(url("/article"), {
-			"method": 'POST',
-			"headers": {'Content-Type': 'application/json'},
-			"body": JSON.stringify({"body":"New article A"})
+			method: 'POST',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({"text":"New article A"})
 		})
 		.then(res => {
 			expect(res.status).to.eql(200)
@@ -44,9 +44,9 @@ describe('Validate Article functionality', () => {
 			oldID = body.id;
 			expect(body.text).to.eql("New article A")
 			return fetch(url("/article"), {
-					"method": 'POST',
-					"headers": {'Content-Type': 'application/json'},
-					"body": JSON.stringify({"body":"New article B"})
+					method: 'POST',
+					headers: {'Content-Type': 'application/json'},
+					body: JSON.stringify({"text":"New article B"})
 				   })
 		})
 		.then(res => {
@@ -71,7 +71,7 @@ describe('Validate Article functionality', () => {
 			return res.json()				
 		})
 		.then(body => {
-			index = body.length
+			index = body.articles.length
 			randomID = Math.floor(1 + Math.random()*index)
 			fetch(url("/articles/" + randomID))
 			.then(res => {
@@ -79,7 +79,7 @@ describe('Validate Article functionality', () => {
 				return res.json()				
 			})
 			.then(body => {
-				expect(body.length).to.eql(1)
+				expect(body.articles.length).to.eql(1)
 			})
 		})
 		.then(done)
@@ -95,7 +95,7 @@ describe('Validate Article functionality', () => {
 			return res.json()				
 		})
 		.then(body => {
-			expect(body.length).to.eql(0)
+			expect(body.articles.length).to.eql(0)
 		})		
 		.then(done)
 		.catch(done)

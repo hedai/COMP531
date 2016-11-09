@@ -1,0 +1,5 @@
+{ 
+     "netid": "hd15",
+  "frontend": "dusty-rainstorm.surge.sh",
+   "backend": "https://dhricebookserver.herokuapp.com/"
+}

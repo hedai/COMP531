@@ -1,0 +1,46 @@
+.postImage {
+    max-width: 150px;
+    max-height: 150px;
+    float: left;
+    padding: 0.1em;
+    margin: 0.5em;    
+}
+
+.newPostBody {
+    border: 1pt solid gray;
+    max-width: 60%;
+    min-width: 250px;
+}
+
+.followingImage {
+     width: 48px;
+     max-width: 48px;
+}
+
+.jumbotron {
+    padding:50px 20px 50px 20px;
+    margin:10px auto;
+    opacity: 0.9;
+}
+
+.well{
+    opacity: 0.9;
+}
+
+.navbar.navbar-default.navbar-fixed-top {
+    opacity: 0.9;
+}
+
+#uploadBox {
+    height: 235px;
+}
+
+#app {
+    background: url('http://hdlatestwallpapers.com/wp-content/uploads/2014/09/Free-Backgrounds-For-Web-Design-e1409631478302.jpeg') no-repeat center center fixed; 
+    background-size: cover;
+    -webkit-background-size: cover;
+}
+
+span[contenteditable='true']:hover {
+    background: #e6e6e6;
+}
