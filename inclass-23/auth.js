@@ -45,9 +45,6 @@ passport.use(new FacebookStrategy(config,
   })
 )
 
-var cookieKey = 'sid'
-var md5 = require('md5')
-
 function register(req, res) {
     console.log('call register()', req.body)
     const username = req.body.username
