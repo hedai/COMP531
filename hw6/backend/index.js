@@ -7,14 +7,14 @@ const app = express()
 //app.use(logger('default'))
 app.use(bodyParser.json())
 app.use(cookieParser())
-app.use(setCORS)
+app.use(enableCORS)
 
 require('./src/articles.js')(app)
 require('./src/profile.js')(app)
 require('./src/auth.js')(app)
 require('./src/following.js')(app)
 
-function setCORS(req, res, next) {
+function enableCORS(req, res, next) {
 	res.header("Access-Control-Allow-Origin", req.header('Origin'))
 	res.header('Access-Control-Allow-Credentials','true')
 	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTION')
