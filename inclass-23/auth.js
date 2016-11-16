@@ -1,7 +1,7 @@
 
 var session = require('express-session')
 var passport = require('passport')
-var FacebookStrategy = require('passport-facebook').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy
 var config = {
   clientSecret: 'f8dbbb000037834256ac3f4ba029813d',
   clientID: '1112689225495962',
@@ -40,7 +40,7 @@ passport.deserializeUser(function(id, done){
 passport.use(new FacebookStrategy(config,
   function(token, refreshToken, profile, done) {
     process.nextTick(function() {
-          return done(null, profile);
+          return done(null, profile)
       })
   })
 )
