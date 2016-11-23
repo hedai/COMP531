@@ -16,7 +16,7 @@ function enableCORS(req, res, next) {
 	res.header('Access-Control-Allow-Headers', 'Authorization, Content-Type, X-Requested-With, X-Session-Id')
 	res.header('Access-Control-Expose-Headers', 'Location, X-Session-Id')
 	if(req.method == 'OPTIONS') {
-		res.status(200).send("Fucking OK")
+		res.status(200).send("OK")
 	}	
 	else {
 		next()

@@ -2,7 +2,7 @@ import Promise from 'bluebird'
 import fetch from 'isomorphic-fetch'
 
 const isLocal = true
-export const url = isLocal ? 'http://localhost:3000' : 'https://webdev-dummy.herokuapp.com'
+export const url = isLocal ? 'http://localhost:3000' : 'https://dhbookhw7.herokuapp.com'
 
 const Action = {
 
