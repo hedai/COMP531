@@ -1,5 +1,5 @@
 { 
      "netid": "hd15",
   "frontend": "direful-leather.surge.sh",
-   "backend": "https://dhricebookserver.herokuapp.com/"
+   "backend": "https://dhbookhw7.herokuapp.com/"
 }
