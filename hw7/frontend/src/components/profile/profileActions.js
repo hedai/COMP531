@@ -1,4 +1,4 @@
-import Action, { updateError, resource } from '../../actions'
+import Action, { updateError, updateSuccess, resource } from '../../actions'
 
 export function validateProfile({username, email, phone, zipcode, password, pwconf}) {
     if (username) {
@@ -70,7 +70,7 @@ function updateField(field, value) {
                 const action = { type: Action.UPDATE_PROFILE }                
                 action[field] = response[field]
                 if (field == 'password')
-                    dispatch(updateError('Sorry, we cannot change the password right now'))
+                    dispatch(updateSuccess('Successfully change the password!'))
                 else
                     dispatch(action)
             })

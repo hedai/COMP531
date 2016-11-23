@@ -7,7 +7,7 @@ module.exports = app => {
 const following = ['hd15', 'hd15test']
 
 const getFollowing = (req, res) => {
-	const user = req.params.user ? re.params.user: 'hd15'
+	const user = req.params.user ? req.params.user: 'hd15'
 	//Hard code the return value;
     res.send({ 
     	username:user,

@@ -16,10 +16,10 @@ PORT=3000
 # echo ""
 # echo ""
 
-echo "GET /articles"
-curl -H 'Content-Type: application/json' http://localhost:${PORT}/articles
-echo ""
-echo ""
+# echo "GET /articles"
+# curl -H 'Content-Type: application/json' http://localhost:${PORT}/articles
+# echo ""
+# echo ""
 
 # echo "GET /articles/4"
 # curl -H 'Content-Type: application/json' http://localhost:${PORT}/articles/4
@@ -84,17 +84,17 @@ echo ""
 # echo ""
 # echo ""
 
-# echo "GET /following"
-# curl http://localhost:${PORT}/following
-# echo ""
-# echo ""
+echo "GET /following"
+curl http://localhost:${PORT}/following
+echo ""
+echo ""
 
-# echo "PUT /following"
-# curl -H 'Content-Type: application/json' -X PUT http://localhost:${PORT}/following/sss
-# echo ""
-# echo ""
+echo "PUT /following"
+curl -H 'Content-Type: application/json' -X PUT http://localhost:${PORT}/following/sss
+echo ""
+echo ""
 
-# echo "DELETE /following"
-# curl -H 'Content-Type: application/json' -X DELETE http://localhost:${PORT}/following/hd15 
-# echo ""
-# echo ""
+echo "DELETE /following"
+curl -H 'Content-Type: application/json' -X DELETE http://localhost:${PORT}/following/hd15 
+echo ""
+echo ""

@@ -109,10 +109,32 @@ const logout = (req, res) => {
 	res.status(200).send("OK")
 }
 
+const changePassword = (req, res) => {
+  console.log('call changePassword()', req.body)
+  const username = req.username
+  const password = req.body.password
+  const salt = md5(Math.random() + username + new Date().getTime())
+  const hash = md5(password + salt + pepper)
+
+  const newInfo = {salt: salt, hash: hash}
+
+  //Update user's password
+  User.findOneAndUpdate({ username: username }, newInfo)
+  .exec(function(err, item) {
+    if(!err) {
+      res.send({username: username, status: 'success'})
+    }
+    else {
+      res.sendStatus(500)
+    }
+  })
+}
+
 function setup(app) {
      app.post('/register', register)
      app.post('/login', login)
      app.put('/logout', isLoggedIn, logout)
+     app.put('/password', isLoggedIn, changePassword)
 }
 
 module.exports = { setup, isLoggedIn }
