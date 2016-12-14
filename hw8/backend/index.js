@@ -11,11 +11,11 @@ app.use(enableCORS)
 
 function enableCORS(req, res, next) {
 	res.header("Access-Control-Allow-Origin", req.headers.origin)
-	res.header('Access-Control-Allow-Credentials', 'true')
+	res.header('Access-Control-Allow-Credentials', true)
 	res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS')
 	res.header('Access-Control-Allow-Headers', 'Authorization, Content-Type, X-Requested-With, X-Session-Id')
 	res.header('Access-Control-Expose-Headers', 'Location, X-Session-Id')
-	if(req.method == 'OPTIONS') {
+	if(req.method === 'OPTIONS') {
 		res.status(200).send("OK")
 	}	
 	else {
