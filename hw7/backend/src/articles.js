@@ -1,4 +1,5 @@
 const Article = require('./model.js').Article
+const Profile = require('./model.js').Profile
 const isLoggedIn = require('./auth.js').isLoggedIn
 const multer = require('multer')
 const doUpload = require('./uploadCloudinary').doUpload
@@ -8,8 +9,15 @@ const getArticles = (req, res) => {
 	console.log('call getArticles', req.body)
 	const id = req.params.id
 	if(!id) {
-		Article.find().sort({date:-1}).exec(function(err, items){
-			res.send({articles: items})
+		Profile.findOne({username: req.username}).exec(function(err, profile){
+			const following = profile.following
+			following.push(req.username)
+			Article.find({author:{$in: following}})
+				.sort({date:-1})
+				.limit(10)
+				.exec(function(err, items){
+				res.send({articles: items})
+			})
 		})
 	}
 	else {

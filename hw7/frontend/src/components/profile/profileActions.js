@@ -109,3 +109,33 @@ export function uploadImage(file) {
         }
     }
 }
+
+export function linkAccountFun({regUsername, regPassword}) {
+    return (dispatch) => {
+        if(regUsername && regPassword){
+            resource('POST', 'merge', {regUsername, regPassword})
+            .then((response) => {
+                dispatch(updateSuccess(`You have successfuly linked with ${regUsername}`))
+            }).catch((err) => {
+                dispatch(updateError(`There was an error linking with ${regUsername}`))
+            })
+        }
+    }
+}
+
+export function unlinkAccount(company) {
+    return (dispatch) => {
+        resource('POST', 'unlink', {company: company}).then((response) => {
+            dispatch(updateSuccess('You have successfuly unlinked with third party account'))
+        }).catch((err) => {
+            dispatch(updateError('There was an error unlinking third party account'))
+        })
+    }
+}
+
+export function linkFacebook() {
+    return (dispatch) => {
+        window.top.location = 'https://dhbookhw8.herokuapp.com/link/facebook'
+        dispatch(navToProfile())
+    }
+}

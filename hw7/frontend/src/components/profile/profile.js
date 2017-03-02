@@ -2,6 +2,9 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import ProfileForm from './profileForm'
+import LinkAccountForm from './linkAccountForm'
+import LinkThirdPartyBtn from './linkThirdPartyBtn'
+import UnlinkBtn from './unlinkBtn'
 import Avatar from './avatar'
 
 const Messages_ = ({error, success}) => (
@@ -56,6 +59,9 @@ const Profile = () => {
                 <div className="well">
                     <Messages/>
                     <ProfileForm/>
+                    <LinkAccountForm/>
+                    <LinkThirdPartyBtn/>
+                    <UnlinkBtn/>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { localLogin } from './authActions'
+import { localLogin, facebookLogin } from './authActions'
 
 const Login = ({dispatch}) => {
     let username, password
@@ -27,8 +27,12 @@ const Login = ({dispatch}) => {
                 <div className="form-group row">
                     <span className="col-sm-4 form-control-label"></span>
                     <div className="col-sm-8">
-                    <input className="btn btn-primary" type="button" value="Log In" id="loginBtn"
-                        onClick={() => { dispatch(localLogin(username.value, password.value)) }}/>
+                        <input className="btn btn-primary" type="button" value="Log In" id="loginBtn"
+                            onClick={() => { dispatch(localLogin(username.value, password.value)) }}/>
+                        <div className="row">&nbsp;</div>
+                        <span className="btn btn-primary" onClick={() => { dispatch(facebookLogin()) }}>
+                            <span className="fa fa-facebook"></span> Facebook
+                        </span>
                     </div>
                 </div>
             </div>

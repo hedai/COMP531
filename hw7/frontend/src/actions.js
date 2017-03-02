@@ -1,7 +1,7 @@
 import Promise from 'bluebird'
 import fetch from 'isomorphic-fetch'
 
-const isLocal = false
+const isLocal = true
 export const url = isLocal ? 'http://localhost:3000' : 'https://dhbookhw7.herokuapp.com'
 
 const Action = {
@@ -24,6 +24,7 @@ const Action = {
     ,UPDATE_PROFILE: 'UPDATE_PROFILE'
 
     ,LOGIN_LOCAL: 'LOGIN_LOCAL'
+    ,LOGIN_FACEBOOK: 'LOGIN_FACEBOOK'
 
 }
 

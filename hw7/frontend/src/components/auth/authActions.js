@@ -1,4 +1,4 @@
-import Action, { resource, updateError, updateSuccess, navToMain, navToIndex, apiUrl } from '../../actions'
+import Action, { resource, updateError, updateSuccess, navToMain, navToIndex, url } from '../../actions'
 
 import { fetchFollowers } from '../main/followingActions'
 import { fetchArticles } from '../article/articleActions'
@@ -42,6 +42,13 @@ export function logout() {
             dispatch({type: Action.LOGIN_LOCAL, username: undefined})
             dispatch(navToIndex())
         })
+    }
+}
+
+export function facebookLogin() {
+    return (dispatch) => {
+        console.log('in FBlogin ...')
+        window.top.location = url + '/login/facebook' 
     }
 }
 
